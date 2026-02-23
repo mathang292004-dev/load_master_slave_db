@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="style.css">
+<div class="container">
+<h2>Signup</h2>
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+<button onclick="signup()">Register</button>
+</div>
+
+<script>
+function signup(){
+ fetch("http://LB_IP/signup", {
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({
+     username:username.value,
+     password:password.value
+   })
+ }).then(res=>res.text()).then(alert);
+}
+</script>

@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="style.css">
+<div class="container">
+<h2>Book Movie Ticket</h2>
+
+<select id="movie">
+<option>Avengers</option>
+<option>Leo</option>
+<option>Jailer</option>
+</select>
+
+<input id="seats" type="number" placeholder="Number of seats">
+
+<button onclick="book()">Book</button>
+</div>
+
+<script>
+function book(){
+ fetch("http://LB_IP/book", {
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({
+     username:"testuser",
+     movie:movie.value,
+     seats:seats.value
+   })
+ }).then(res=>res.text()).then(alert);
+}
+</script>
